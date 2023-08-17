@@ -33,9 +33,9 @@ const calculateDate = ({year, month, day }) =>{
     const yearNum = date.getFullYear().toString();
     console.log(date.getDay());
     if (  date.getDay() >= 1 && date.getDay() <= 5 ){
-        dato.innerHTML = `${dayNum} ${dateNum} ${monthNum} ${yearNum}. Estatus: laboral` 
+        dato.innerHTML = `${dayNum} ${dateNum} ${monthNum} ${yearNum} <p class="text-success">Estatus: laboral</p>` 
     }else{
-       dato.innerHTML = `${dayNum} ${dateNum} ${monthNum} ${yearNum}. Estatus: no laboral` 
+       dato.innerHTML = `${dayNum} ${dateNum} ${monthNum} ${yearNum} <p class="text-danger">Estatus: no laboral</p>` 
     }  
 
 };
