@@ -20,21 +20,66 @@ formFecha.addEventListener('submit',(e)=>{
 });
 
 const calculateDate = ({year, month, day }) =>{
+    console.log(year, month, day);
+    switch (true) {
+        case (day == 0 ):
+            dato.innerHTML = `
+            <p>El día 0 no existe campeon</p>
+            <img class="img-size" src="https://as.com/videos/imagenes/2016/06/19/portada/1466360711_055854_1466361460_miniatura_normal.jpg" alt="siuuuu">
+            `
+            break;
+        case (month == -1 ):
+            dato.innerHTML = `
+            <p>Te falto el mes campeon</p>
+            <img class="img-size" src="https://as.com/videos/imagenes/2016/06/19/portada/1466360711_055854_1466361460_miniatura_normal.jpg" alt="siuuuu">`
+            break;
+    
+        default:
+            const date = new Date(year, month, day);
+            const dayNum = weekDays[date.getDay()];
+            const dateNum = date.getDate().toString();
+            const monthNum = months[date.getMonth()];
+            const yearNum = date.getFullYear().toString();
+            
+            switch ( true ){
+                case (date.getDay() >= 1 && date.getDay() <= 5):
+                dato.innerHTML = `
+                ${dayNum} ${dateNum} ${monthNum} ${yearNum}
+                <p class="text-success">Estatus: laboral</p>
+                <p>Que sad :(</p>
+                <img class="img-size" src="https://images.ecestaticos.com/OCwVjAzyciCGp_AdPxv8yzBskds=/0x0:2272x1678/1200x900/filters:fill(white):format(jpg)/f.elconfidencial.com%2Foriginal%2Ffc8%2Ffb2%2Fe7a%2Ffc8fb2e7a82728b7eb6193a0935d6a94.jpg" alt="siuuuu"> 
+                ` 
+                break;
+                default:
+                dato.innerHTML = `${dayNum} ${dateNum} ${monthNum} ${yearNum}
+                <p class="text-danger">Estatus: no laboral</p>
+                <p>SIUUUUUU</p>
+                <img class="img-size" src="https://phantom-marca-mx.unidadeditorial.es/d8ff4a51f6aa3c9c6a8d36939afc6514/resize/660/f/webp/mx/assets/multimedia/imagenes/2023/06/05/16859985858899.jpg" alt="siuuuu">
+                ` 
+            }  
+            break;
+        }
+        
+        
+        
+    };
 
-    const date = new Date(year, month, day);
-    const dayNum = weekDays[date.getDay()];
-    const dateNum = date.getDate().toString();
-    const monthNum = months[date.getMonth()];
-    const yearNum = date.getFullYear().toString();
-    console.log(date.getDay());
-    if (  date.getDay() >= 1 && date.getDay() <= 5 ){
-        dato.innerHTML = `${dayNum} ${dateNum} ${monthNum} ${yearNum} <p class="text-success">Estatus: laboral</p>` 
+
+    /* if (  date.getDay() >= 1 && date.getDay() <= 5 ){
+        dato.innerHTML = `
+        ${dayNum} ${dateNum} ${monthNum} ${yearNum}
+        <p class="text-success">Estatus: laboral</p>
+        <p>Que sad :(</p>
+        <img class="img-size" src="https://images.ecestaticos.com/OCwVjAzyciCGp_AdPxv8yzBskds=/0x0:2272x1678/1200x900/filters:fill(white):format(jpg)/f.elconfidencial.com%2Foriginal%2Ffc8%2Ffb2%2Fe7a%2Ffc8fb2e7a82728b7eb6193a0935d6a94.jpg" alt="siuuuu"> 
+        ` 
     }else{
-       dato.innerHTML = `${dayNum} ${dateNum} ${monthNum} ${yearNum} <p class="text-danger">Estatus: no laboral</p>` 
+    dato.innerHTML = `${dayNum} ${dateNum} ${monthNum} ${yearNum}
+        <p class="text-danger">Estatus: no laboral</p>
+        <p>SIUUUUUU</p>
+        <img class="img-size" src="https://phantom-marca-mx.unidadeditorial.es/d8ff4a51f6aa3c9c6a8d36939afc6514/resize/660/f/webp/mx/assets/multimedia/imagenes/2023/06/05/16859985858899.jpg" alt="siuuuu">
+        ` 
     }  
-
-};
-
+     */
 
 
 

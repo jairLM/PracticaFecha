@@ -1,14 +1,14 @@
 .img-size{
-    width: 100%;
+    width: 40%;
 }
 
 .btn-size{
-    width: 5em;
+    width: 10em;
 }
 
 .container{
     height: 25em;
-    width: 50%;
+    width: 80%;
 }
 .container-2{
     height: 100vh;
